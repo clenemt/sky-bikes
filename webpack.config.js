@@ -8,7 +8,6 @@ const config = (env = {}, argv) => {
   const isAnalyze = env.analyze;
 
   const rules = require('./webpack.rules')(isDev);
-  const devServer = require('./webpack.devserver')(isDev, isVerbose);
   const plugins = require('./webpack.plugins')(isDev, isAnalyze);
 
   return {
@@ -22,10 +21,10 @@ const config = (env = {}, argv) => {
       bundle: ['./src/entry.js'],
     },
 
-    // How and where it should output our bundle
+    // How and where it should output bundles
     // https://webpack.js.org/configuration/output/
     output: {
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, 'jekyll/assets'),
       filename: `[name].js?[hash]`,
     },
 
@@ -78,8 +77,6 @@ const config = (env = {}, argv) => {
     performance: {
       hints: isDev ? false : 'warning',
     },
-
-    devServer,
   };
 };
 

@@ -5,7 +5,7 @@ module.exports = (isDev) => ({
   css: {
     test: /\.(css|scss)$/,
     use: [
-      isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+      MiniCssExtractPlugin.loader,
       {
         // CSS Loader https://github.com/webpack/css-loader
         loader: 'css-loader',
@@ -66,10 +66,6 @@ module.exports = (isDev) => ({
         // Experimental ECMAScript proposals
         // https://babeljs.io/docs/plugins/preset-stage-2/
         ['@babel/preset-stage-2', { decoratorsLegacy: true }],
-
-        // JSX
-        // https://babeljs.io/docs/plugins/preset-react/
-        '@babel/preset-react',
       ],
 
       plugins: [

@@ -1,0 +1,24 @@
+# Site settings
+# -------------
+
+title: sky-bikes
+
+# Page settings
+url: ""
+baseurl: ""
+
+# Build settings
+# --------------
+
+# Default markdown parser
+markdown: kramdown
+
+# Make sure that pages don't end up behind weird urls like:`_pages/myPage.html`
+collections:
+  pages:
+    output: true
+    permalink: /:path
+
+# Make sure the `_pages/` is processed
+include:
+  - _pages

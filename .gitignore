@@ -1,5 +1,6 @@
 # Build files #
-dist
+_site
+jekyll/assets
 
 # Logs #
 logs

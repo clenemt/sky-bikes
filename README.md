@@ -6,30 +6,24 @@ Holds the frontend code for the sky-bikes app.
 
 ### :memo: Prerequisites
 
-Install [nvm](https://github.com/creationix/nvm) globally if you don't have it:
-
-```sh
-brew install nvm
-nvm install
-```
-
-Install [yarn](https://github.com/yarnpkg/yarn) globally if you don't have it:
+Install [Yarn](https://github.com/yarnpkg/yarn) and [Ruby](https://www.ruby-lang.org/en/):
 
 ```sh
 brew install yarn
+brew install ruby
 ```
 
 ### :building_construction: Installing
 
 ```sh
-nvm use
+gem install jekyll
 yarn install
 ```
 
 and to start the server:
 
 ```sh
-# local web server accessible at http://localhost:8001
+# local web server accessible at http://localhost:4000
 yarn start
 ```
 
@@ -42,7 +36,7 @@ yarn test
 ## :rocket: Deployment
 
 ```sh
-# will output bundles to → /dist
+# will output files to → /_site
 yarn build
 ```
 
