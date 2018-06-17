@@ -1,3 +1,7 @@
 <header class="site__header" role="banner">
   <a class="site__title" href="{{ "/" | relative_url }}" title="Home page">{{ site.title | escape }}</a>
+  {{ page.title }}
+  {% unless page.title == 'Register' or page.title == 'Index' %}
+    <button class="btn" id="signout">Logout</button>
+  {% endunless %}
 </header>

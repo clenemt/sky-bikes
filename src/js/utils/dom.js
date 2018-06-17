@@ -39,6 +39,12 @@ class Dom {
   insertLast = (v) => this.each((i) => i.insertAdjacentHTML('beforeEnd', v));
 
   empty = () => this.each((i) => (i.innerHTML = ''));
+  val = () =>
+    Array.from(this.value[0].elements).reduce((result, el) => {
+      if (!el.name || !el.type) return result;
+      result[el.name] = el.value;
+      return result;
+    }, {});
 }
 
 const $ = (s) => new Dom(s);

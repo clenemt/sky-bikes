@@ -1,13 +1,26 @@
+/* eslint no-param-reassign: off, prefer-destructuring: off */
 const routes = {};
-const route = (url, fn) => (routes[url] = fn);
+const route = (url, ...fns) => (routes[url] = fns);
+
+const getQueryParams = (search) =>
+  search
+    .substr(1)
+    .split('&')
+    .reduce((result, keyValue) => {
+      const param = keyValue.split('=');
+      result[param[0]] = param[1] != null ? param[1] : true;
+      return result;
+    }, {});
 
 const start = () => {
   const loc = window.location;
-  if (routes['*']) routes['*'](loc.pathname);
+  const params = getQueryParams(loc.search);
+
+  if (routes['*']) routes['*'].forEach((fn) => fn(params));
 
   Object.keys(routes).forEach((url) => {
-    if (!url.includes(loc.pathname)) return;
-    routes[url](loc.pathname);
+    if (url !== loc.pathname) return;
+    routes[url].forEach((fn) => fn(params));
   });
 };
 

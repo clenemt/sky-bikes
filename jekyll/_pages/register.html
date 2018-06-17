@@ -4,10 +4,12 @@ layout: default
 
 <div class="container">
   <form id="form_register">
-    <input class="form-control" name="firstname" type="text" placeholder="First name">
-    <input class="form-control" name="lastname" type="text" placeholder="Last name">
-    <input class="form-control" name="email" type="email" placeholder="Email">
+    <input class="form-control" name="firstname" type="text" placeholder="First name" required>
+    <input class="form-control" name="lastname" type="text" placeholder="Last name" required>
+    <input class="form-control" name="email" type="email" placeholder="Email" required>
+    <input class="form-control" name="phone" type="text" placeholder="Emergency phone number" required>
     <button class="btn btn-primary" type="submit">Sign Up</button>
     <a href="/index.html">Back to login</a>
+    <div id="error_placeholder"></div>
   </form>
 </div>
