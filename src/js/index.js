@@ -1,1 +1,3 @@
-console.log('foo');
+import * as routes from './routes';
+
+routes.init();
