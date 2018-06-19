@@ -31,8 +31,14 @@ const PROVIDERS = [
   'free.fr',
 ];
 
+// Helper to pick a random item from the passed items.
 const chance = (items) => items[Math.floor(Math.random() * items.length)];
 
+/**
+ * Generate an array of users.
+ * @param  {Number} number - The amount of users to generate.
+ * @return {Object[]} Returns the generated users.
+ */
 const generate = (number) => {
   const users = [...Array(number)].map(() => {
     const firstname = chance(FIRSTS);

@@ -13,6 +13,18 @@ const COLOR_ORDER = [
 const RENTAL_LIMIT = 48;
 const REARRANGE_LIMIT = 48;
 
+// Small helper to sort bikes per color
+const sortBikesPerColor = (a, b) => {
+  const aIndex = COLOR_ORDER.findIndex((color) => color === a.color);
+  const bIndex = COLOR_ORDER.findIndex((color) => color === b.color);
+  if (aIndex < bIndex) return -1;
+  if (aIndex > bIndex) return 1;
+  return 0;
+};
+
+/**
+ * Make sure all over due bikes are returned.
+ */
 const returnLateBikes = () => {
   bikesStore.getAll().forEach((bike) => {
     if (!bike.rentedAt) return;
@@ -25,14 +37,9 @@ const returnLateBikes = () => {
   });
 };
 
-const sortBikesPerColor = (a, b) => {
-  const aIndex = COLOR_ORDER.findIndex((color) => color === a.color);
-  const bIndex = COLOR_ORDER.findIndex((color) => color === b.color);
-  if (aIndex < bIndex) return -1;
-  if (aIndex > bIndex) return 1;
-  return 0;
-};
-
+/**
+ * Order bikes per color in each station.
+ */
 const rearrangeBikes = () => {
   const start =
     store.get('startDate') || store.set('startDate', new Date().getTime());

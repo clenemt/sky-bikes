@@ -8,6 +8,11 @@ const COLORS = [
   '#FF0000',
 ];
 
+/**
+ * Generate an array of bikes.
+ * @param  {Number} number - The amount of bikes to generate.
+ * @return {Object[]} Returns the generated bikes.
+ */
 const generate = (number) =>
   [...Array(number)].map((v, i) => ({
     id: `${i + 1}`,
