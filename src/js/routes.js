@@ -1,4 +1,4 @@
-import { isLoggedIn, signout, isAdmin } from './passport';
+import { isLoggedIn, signout, isAdmin, isBanned } from './passport';
 import * as router from './utils/router';
 import * as logs from './pages/logs';
 import * as bike from './pages/bike';
@@ -15,6 +15,7 @@ import * as register from './pages/register';
  */
 const authorize = (requireAdmin) => () => {
   if (!isLoggedIn()) return signout('authError');
+  if (isBanned()) return signout('banError');
   if (!requireAdmin) return true;
   return isAdmin() || signout('authError');
 };

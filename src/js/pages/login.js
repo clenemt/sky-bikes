@@ -42,6 +42,12 @@ const init = (params) => {
       `Please login before trying to use the service.`,
     );
   }
+
+  if (params.banError) {
+    $('#error_placeholder').html(
+      `This user has been banned ⛔️. Please sign up again.`,
+    );
+  }
 };
 
 export { init };
