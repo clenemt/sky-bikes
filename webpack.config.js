@@ -44,20 +44,6 @@ const config = (env = {}, argv) => {
     // https://webpack.js.org/configuration/stats/
     stats: isVerbose ? 'verbose' : 'normal',
 
-    optimization: isDev
-      ? undefined
-      : {
-          // Enable uglify in production
-          // https://webpack.js.org/configuration/optimization/#optimization-minimize
-          minimize: true,
-
-          // Enable code splitting in production
-          // https://webpack.js.org/guides/code-splitting/
-          splitChunks: {
-            chunks: 'all',
-          },
-        },
-
     plugins,
 
     // Choose a developer tool to enhance debugging
