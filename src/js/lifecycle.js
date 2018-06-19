@@ -1,3 +1,4 @@
+import $ from './utils/dom';
 import store from './utils/store';
 import * as bikesStore from './stores/bikes';
 
@@ -23,7 +24,7 @@ const sortBikesPerColor = (a, b) => {
 };
 
 /**
- * Make sure all over due bikes are returned.
+ * Make sure all overdue bikes are returned.
  */
 const returnLateBikes = () => {
   bikesStore.getAll().forEach((bike) => {
@@ -63,4 +64,21 @@ const rearrangeBikes = () => {
   }
 };
 
-export { returnLateBikes, rearrangeBikes, RENTAL_LIMIT };
+/**
+ * Update the visual timer inside the header.
+ */
+const updateTimer = () => {
+  const timer = $('#timer');
+  const bikes = bikesStore.getAll().filter((bike) => bike.rentedAt);
+  if (!bikes.length) return timer.empty();
+
+  bikes.forEach((bike) => {
+    const elapsedTime = Math.floor(
+      (new Date() - new Date(bike.rentedAt)) / 1000,
+    );
+    const time = Math.max(RENTAL_LIMIT - elapsedTime, 0);
+    timer.html(`<div class="site__timer">${time}</div>`);
+  });
+};
+
+export { returnLateBikes, rearrangeBikes, updateTimer, RENTAL_LIMIT };

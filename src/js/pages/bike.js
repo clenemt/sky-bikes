@@ -14,9 +14,11 @@ const renderBike = ({ id, color, renter }, user) => `
   </div>
 `;
 
-const renderInformation = () => `
-    <h3><span class="t-1">🎉</span> Congrats on your new rental!</h3>
-    <p>You will be logged out in 5 seconds. Have fun!</p>
+const renderInformation = (isRental) => `
+    <h3><span class="t-1">🎉</span> Congrats on ${
+      isRental ? 'your new rental' : 'returning the bike in time'
+    }!</h3>
+    <p>You will be logged out in 5 seconds. Thanks again!</p>
 `;
 
 const handleButtonClick = ({ id, renter }, user, station) => {
@@ -26,12 +28,13 @@ const handleButtonClick = ({ id, renter }, user, station) => {
     bikesStore.rentBike(id, user);
   }
 
-  informUser();
+  informUser(renter !== user);
 };
 
-const informUser = () => {
+const informUser = (isRental) => {
   const item = $('.site__item');
-  item.html(renderInformation());
+  item.html(renderInformation(isRental));
+  $('#back_button').empty();
   setTimeout(signout, 5000);
 };
 

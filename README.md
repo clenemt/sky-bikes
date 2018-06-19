@@ -4,6 +4,8 @@ Holds the frontend code for the sky-bikes app.
 
 ## :tada: Getting Started
 
+This project uses [Jekyll](https://jekyllrb.com/) for rendering the page templates into `<html>` and [webpack](https://webpack.js.org/) for bundling the assets.
+
 ### :memo: Prerequisites
 
 Install [Yarn](https://github.com/yarnpkg/yarn) and [Ruby](https://www.ruby-lang.org/en/):
@@ -38,6 +40,8 @@ yarn test
 ```sh
 # will output files to → /_site
 yarn build
+# you can then serve it with any web server e.g.
+npx http-serve /_site
 ```
 
 and to analyze your output:
