@@ -1,11 +1,17 @@
 import $ from './utils/dom';
-import { nav } from './utils/router';
 import * as routes from './routes';
 import { signout } from './passport';
+import { rearrangeBikes, returnLateBikes } from './lifecycle';
 
 routes.init();
 
-$('#signout').on('click', () => {
-  signout();
-  nav('/index.html');
-});
+// Launch the game lifecycle loop.
+// Will check for late bikes to be returned
+// and will clean up bikes once per day.
+setInterval(() => {
+  returnLateBikes();
+  rearrangeBikes();
+}, 500);
+
+// Common logout button on most pages
+$('#signout').on('click', () => signout());

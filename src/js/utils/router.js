@@ -19,8 +19,9 @@ const start = () => {
   if (routes['*']) routes['*'].forEach((fn) => fn(params));
 
   Object.keys(routes).forEach((url) => {
-    if (url !== loc.pathname) return;
-    routes[url].forEach((fn) => fn(params));
+    const isRoot = url === '/index.html' && loc.pathname === '/';
+    if (url !== loc.pathname && !isRoot) return;
+    routes[url].every((fn) => fn(params));
   });
 };
 

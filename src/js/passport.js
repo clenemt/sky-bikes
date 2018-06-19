@@ -1,23 +1,45 @@
-import store from './utils/store';
+import * as userStore from './stores/user';
+import * as usersStore from './stores/users';
+import { log } from './stores/logs';
+import { nav } from './utils/router';
 
-const isAuthorized = (email) => {
-  const users = store.get('users') || [];
+const userExist = (email) => {
+  const users = usersStore.getAll();
   return users.find((user) => user.email === email);
 };
 
-const isUserLoggedIn = () => store.get('user');
-const isUserAdmin = () => (store.get('user') || {}).admin;
+const isLoggedIn = () => userStore.get();
 
-const signin = (email) => isAuthorized(email) && store.set('user', email);
-const signout = () => store.set('user', '');
-const signup = ({ email, ...values }) => {
-  if (isAuthorized(email)) return 'userError';
-
-  const users = store.get('users') || [];
-  users.push({ email, ...values });
-
-  store.set('users', users);
-  store.set('user', email);
+const isBanned = () => {
+  const user = userStore.get();
+  return (usersStore.get(user) || {}).banned;
 };
 
-export { isUserLoggedIn, isUserAdmin, isAuthorized, signup, signout, signin };
+const isAdmin = () => {
+  const user = userStore.get();
+  return (usersStore.get(user) || {}).admin;
+};
+
+const signin = (email) => {
+  if (!userExist(email)) return;
+  log(`*signin* from ${email}`);
+  return userStore.set(email);
+};
+
+const signout = (error) => {
+  const user = userStore.get();
+  if (user) {
+    log(`*signout* from ${user}`);
+    userStore.set('');
+  }
+  nav(`/index.html${error ? `?${error}` : ''}`);
+};
+
+const signup = ({ email, ...values }) => {
+  if (userExist(email)) return 'userError';
+  log(`*signup* from ${email}`);
+  userStore.set(email);
+  usersStore.set({ email, ...values });
+};
+
+export { isLoggedIn, isAdmin, isBanned, signup, signout, signin };
