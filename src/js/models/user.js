@@ -61,6 +61,7 @@ const generate = (number) => {
       lastname: 'admin',
       email: 'root@gmail.com',
       admin: true,
+      phone: '0000000',
     },
   ];
 };

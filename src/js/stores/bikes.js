@@ -76,7 +76,7 @@ const rentBike = (id, email) => {
       };
     }),
   );
-  log(`bike *${id}* rented by *${email}*`);
+  log(`bike *${id}* rented by ${email}`);
 };
 
 /**
@@ -90,10 +90,11 @@ const returnBike = (id, station, isAutomatic) => {
   const bikes = getAll();
   store.set(
     'bikes',
-    bikes.map(({ renter, rentedAt, ...bike }) => {
+    bikes.map((bike) => {
       if (bike.id !== id) return bike;
-      if (isAutomatic) usersStore.ban(renter);
-      return { ...bike, ...{ station } };
+      if (isAutomatic) usersStore.ban(bike.renter);
+      const { renter, rentedAt, ...newBike } = bike;
+      return { ...newBike, ...{ station } };
     }),
   );
   log(`bike *${id}* returned at station *${station}*`);

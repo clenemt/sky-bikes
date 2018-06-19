@@ -1,7 +1,12 @@
-<header class="site__header" role="banner">
-  <a class="site__title" href="{{ "/" | relative_url }}" title="Home page">{{ site.title | escape }}</a>
-  {{ page.title }}
-  {% unless page.title == 'Register' or page.title == 'Index' %}
-    <button class="btn" id="signout">Logout</button>
-  {% endunless %}
-</header>
+<div class='site__nav'>
+  <div class="container">
+    {% assign backPages = "Bike,Logs,Users,Bikes,Register" | split: ',' %}
+    {% if backPages contains page.title %}
+      <button class="btn site__back" id="back_button">← Back</button>
+    {% endif %}
+    <a class="site__title" href="{{ "/" | relative_url }}" title="Home page">{{ site.title | escape }}</a>
+    {% unless page.title == 'Register' or page.title == 'Index' %}
+      <button class="btn btn--secondary site__logout" id="signout_button">Logout</button>
+    {% endunless %}
+  </div>
+</div>

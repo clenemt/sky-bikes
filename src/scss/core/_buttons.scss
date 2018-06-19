@@ -1,0 +1,71 @@
+//
+// Base styles
+//
+
+.btn {
+  display: inline-block;
+  font-weight: normal;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: $border-width solid transparent;
+  cursor: pointer;
+
+  padding: $input-padding-y $input-padding-x;
+  font-size: $font-size;
+  line-height: $line-height;
+  border-radius: $border-radius;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:focus,
+  &.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba($brand-100, 0.25);
+  }
+
+  &:active,
+  &.active {
+    background-image: none;
+    box-shadow: inset 0 3px 5px rgba($black, 0.125);
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba($brand-100, 0.25),
+        inset 0 3px 5px rgba($black, 0.125);
+    }
+  }
+}
+
+//
+// Alternate buttons
+//
+
+.btn--primary,
+.btn--primary:hover,
+.btn--primary:focus {
+  color: $white;
+  background-color: $brand-100;
+  border-color: $brand-100;
+}
+
+.btn--secondary {
+  color: $brand-200;
+  background-color: transparent;
+  border-color: $brand-200;
+
+  &:hover,
+  &:focus {
+    color: $white;
+    background-color: $brand-200;
+    border-color: $brand-200;
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba($brand-200, 0.25),
+        inset 0 3px 5px rgba($black, 0.125);
+    }
+  }
+}

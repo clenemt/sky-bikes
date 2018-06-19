@@ -10,13 +10,15 @@ const bold = (strings, ...values) =>
     .join('');
 
 const renderLog = (log) => bold`
-  <p><code>[${new Date(log.time).toISOString()}] ${log.msg}</code></p>
+  <p class="mb-1"><code>[${new Date(log.time).toISOString()}] ${
+  log.msg
+}</code></p>
 `;
 
 const init = () => {
   const logs = logsStore.getAll();
 
-  const container = $('.container');
+  const container = $('.site__content');
   logs.forEach((log) => {
     container.insertLast(renderLog(log));
   });

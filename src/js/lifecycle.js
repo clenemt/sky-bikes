@@ -10,7 +10,7 @@ const COLOR_ORDER = [
   '#FF7F00',
   '#FF0000',
 ];
-const RENTAL_LIMIT = 48;
+const RENTAL_LIMIT = 16;
 const REARRANGE_LIMIT = 48;
 
 // Small helper to sort bikes per color
@@ -31,7 +31,7 @@ const returnLateBikes = () => {
 
     const difference = (new Date() - new Date(bike.rentedAt)) / 1000;
     if (difference > RENTAL_LIMIT) {
-      const station = Math.floor(Math.random() * 3) + 1;
+      const station = `${Math.floor(Math.random() * 3) + 1}`;
       bikesStore.returnBike(bike.id, station, true);
     }
   });

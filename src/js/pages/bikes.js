@@ -5,9 +5,9 @@ import { isAdmin, signout } from '../passport';
 const renderStation = (id) => `<h3>Station ${id}</h3>`;
 
 const renderBike = ({ id, color }, station) => `
-  <p>
-    <a href="/bike.html?id=${id}&station=${station}">Bike id is ${id} and color is <span style="color:${color};">${color}</span></a>
-  </p>
+  <a class="site__item" href="/bike.html?id=${id}&station=${station}">
+    Bike id is <strong>${id}</strong> and color is <strong style="color:${color};">${color}</strong>
+  </a>
 `;
 
 const init = (params) => {
@@ -20,7 +20,7 @@ const init = (params) => {
     : bikesStore.getByStation(params.station);
   const stations = bikesStore.groupByStation(bikes);
 
-  const container = $('.container');
+  const container = $('.site__content');
   stations.forEach((stationBikes, i) => {
     const station = i + 1;
     container.insertLast(renderStation(station));

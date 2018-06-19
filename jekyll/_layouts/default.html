@@ -5,7 +5,7 @@
   <body class="site">
     {% include header.html %}
 
-    <main class="site__content" aria-label="Content" id={{ "page-" | append: page.title | slugify }}>
+    <main class="container" aria-label="Content" id={{ "page-" | append: page.title | slugify }}>
       {{ content }}
     </main>
 

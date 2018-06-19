@@ -24,7 +24,7 @@ const init = (params) => {
 
   if (params.userError) {
     $('#error_placeholder').html(
-      `This user already exist, please try with a different email.`,
+      `This user already exist, please try again with a different email.`,
     );
   }
 };

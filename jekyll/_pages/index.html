@@ -2,11 +2,16 @@
 layout: default
 ---
 
-<div class="container">
-  <form>
-    <input class="form-control" name="email" type="email" placeholder="customer@gdpr.com" required>
-    <button class="btn btn-primary" type="submit">Log In</button>
-    <a href="/register.html">Sign up</a>
-    <div id="error_placeholder"></div>
-  </form>
-</div>
+<form class="site__content site__card bg-brand-300 mt-6">
+  <h1 class="t-white">Well hello there 👋</h1>
+  <p>Welcome to Sky Bike! Start renting a bike by loging in or signing up.</p>
+
+  <input class="form-control" name="email" type="email" placeholder="customer@gdpr.com" required>
+  <p class=form-text>Try <strong>root@gmail.com</strong> for admin access.</p>
+  <div id="error_placeholder" class="form-text t-red mb-4"></div>
+
+  <div class="t-right">
+    <button class="btn btn--primary mr-2" type="submit">Log In</button>
+    <a class="btn btn--link t-white" href="/register.html">Sign up</a>
+  </div>
+</form>

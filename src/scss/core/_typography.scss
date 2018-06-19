@@ -61,21 +61,3 @@ small,
   font-size: 80%;
   font-weight: normal;
 }
-
-//
-// Lists
-//
-
-.list-unstyled,
-.list-inline {
-  padding-left: 0;
-  list-style: none;
-}
-
-.list-inline-item {
-  display: inline-block;
-
-  &:not(:last-child) {
-    margin-right: $spacer * 0.5;
-  }
-}

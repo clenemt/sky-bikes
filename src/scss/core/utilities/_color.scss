@@ -2,46 +2,50 @@
 // Backgrounds
 //
 
-.bg-green {
-  background-color: $green-300 !important;
-}
-.bg-blue {
-  background-color: $blue-300 !important;
-}
-.bg-red {
-  background-color: $red-300 !important;
-}
-.bg-grey {
-  background-color: $grey-700 !important;
-}
 .bg-white {
   background-color: $white !important;
 }
-.bg-black {
-  background-color: $black !important;
+.bg-brand-100 {
+  background: $brand-100 !important;
 }
-.bg-transparent {
-  background-color: transparent !important;
+.bg-brand-200 {
+  background: $brand-200 !important;
+}
+.bg-brand-300 {
+  background: $brand-300 !important;
+}
+.bg-brand-400 {
+  background: $brand-400 !important;
+}
+.bg-brand-500 {
+  background: $brand-500 !important;
 }
 
-.t-green {
-  color: $green !important;
-}
-.t-blue {
-  color: $blue !important;
-}
+//
+// Text color
+//
+
 .t-red {
   color: $red !important;
-}
-.t-grey {
-  color: $grey-300 !important;
-}
-.t-light-grey {
-  color: $grey-500 !important;
 }
 .t-white {
   color: $white !important;
 }
 .t-black {
   color: $black !important;
+}
+.t-brand-100 {
+  color: $brand-100 !important;
+}
+.t-brand-200 {
+  color: $brand-200 !important;
+}
+.t-brand-300 {
+  color: $brand-300 !important;
+}
+.t-brand-400 {
+  color: $brand-400 !important;
+}
+.t-brand-500 {
+  color: $brand-500 !important;
 }

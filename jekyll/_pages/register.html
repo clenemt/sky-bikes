@@ -2,14 +2,20 @@
 layout: default
 ---
 
-<div class="container">
-  <form id="form_register">
-    <input class="form-control" name="firstname" type="text" placeholder="First name" required>
-    <input class="form-control" name="lastname" type="text" placeholder="Last name" required>
-    <input class="form-control" name="email" type="email" placeholder="Email" required>
-    <input class="form-control" name="phone" type="text" placeholder="Emergency phone number" required>
-    <button class="btn btn-primary" type="submit">Sign Up</button>
-    <a href="/index.html">Back to login</a>
-    <div id="error_placeholder"></div>
+<div class="site__content site__card bg-white mt-6">
+  <h1>Hello fellow biker!</h1>
+  <p class="mb-4">We need a couple info from you before you can start renting a bike.</p>
+  <form>
+    <div id="error_placeholder" class="form-text t-red mb-2"></div>
+    <div class="d-flex mb-2">
+      <input class="form-control mr-2" name="firstname" type="text" placeholder="First name" required>
+      <input class="form-control" name="lastname" type="text" placeholder="Last name" required>
+    </div>
+    <input class="form-control mb-2" name="email" type="email" placeholder="Email" required>
+    <input class="form-control mb-4" name="phone" type="text" placeholder="Emergency phone" required>
+    <div class="t-right">
+      <button class="btn btn--primary mr-2" type="submit">Sign up</button>
+      <a class="btn btn--link" href="/index.html">Back to login</a>
+    </div>
   </form>
 </div>

@@ -13,5 +13,6 @@ setInterval(() => {
   rearrangeBikes();
 }, 500);
 
-// Common logout button on most pages
-$('#signout').on('click', () => signout());
+// Common buttons on most pages
+$('#signout_button').on('click', () => signout());
+$('#back_button').on('click', () => window.history.back());
