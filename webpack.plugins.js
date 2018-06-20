@@ -7,7 +7,7 @@ module.exports = (isDev, isAnalyze) => [
   // https://webpack.js.org/plugins/define-plugin/
   new webpack.DefinePlugin({
     __PROD__: !isDev,
-    __BASE_URL__: isDev ? '' : "'/sky-bikes'",
+    __BASE_URL__: "'/sky-bikes'",
   }),
 
   // Allow extracting css to a single file

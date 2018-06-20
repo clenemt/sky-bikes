@@ -23,8 +23,8 @@
     "lint:staged": "lint-staged",
     "test": "echo success",
     "coverage": "echo success",
-    "build": "npm run scaffold && webpack --mode=production && jekyll build -s jekyll -d docs",
-    "start": "npm run scaffold && concurrently -k -n 'WEBPACK,JEKYLL' -c 'bgBlue.bold,bgRed.bold' 'webpack --mode=development -w' 'jekyll serve -s jekyll -l'",
+    "build": "npm run scaffold && webpack --mode=production && jekyll build -s jekyll -d docs -b /sky-bikes",
+    "start": "npm run scaffold && concurrently -k -n 'WEBPACK,JEKYLL' -c 'bgBlue.bold,bgRed.bold' 'webpack --mode=development -w' 'jekyll serve -s jekyll -l -b /sky-bikes'",
     "stats": "webpack --env.analyze --env.verbose --mode=production --progress"
   },
   "devDependencies": {

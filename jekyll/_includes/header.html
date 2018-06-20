@@ -1,11 +1,11 @@
 <div class='site__nav'>
   <div class="container">
-    {% assign backPages = "Bike,Logs,Users,Bikes,Register" | split: ',' %}
+    {% assign backPages = "bike,bikes,logs,users,register" | split: ',' %}
     {% if backPages contains page.title %}
       <button class="btn site__back" id="back_button">← Back</button>
     {% endif %}
     <a class="site__title" href="{{ "/" | relative_url }}" title="Home page">{{ site.title | escape }}</a><span id="timer"></span>
-    {% unless page.title == 'Register' or page.title == 'Index' %}
+    {% unless page.title == 'register' or page.title == 'login' %}
       <button class="btn btn--secondary site__logout" id="signout_button">Logout</button>
     {% endunless %}
   </div>

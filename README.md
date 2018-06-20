@@ -25,7 +25,7 @@ yarn install
 and to start the server:
 
 ```sh
-# local web server accessible at http://localhost:4000
+# local web server accessible at http://localhost:4000/sky-bikes/
 yarn start
 ```
 
