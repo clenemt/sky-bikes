@@ -1,4 +1,3 @@
-const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBundleAnalyzer = require('webpack-bundle-analyzer');
@@ -8,6 +7,7 @@ module.exports = (isDev, isAnalyze) => [
   // https://webpack.js.org/plugins/define-plugin/
   new webpack.DefinePlugin({
     __PROD__: !isDev,
+    __BASE_URL__: isDev ? '' : "'/sky-bikes'",
   }),
 
   // Allow extracting css to a single file

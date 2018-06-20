@@ -30,13 +30,14 @@ const getQueryParams = (string) =>
  */
 const start = () => {
   const loc = window.location;
+  const path = loc.pathname.replace(__BASE_URL__, '');
   const params = getQueryParams(loc.search);
 
   if (routes['*']) routes['*'].forEach((fn) => fn(params));
 
   Object.keys(routes).forEach((url) => {
-    const isRoot = url === '/index.html' && loc.pathname === '/';
-    if (url !== loc.pathname && !isRoot) return;
+    const isRoot = url === '/index.html' && path === '/';
+    if (url !== path && !isRoot) return;
     routes[url].every((fn) => fn(params));
   });
 };
@@ -46,7 +47,7 @@ const start = () => {
  * @param  {String} path - The path to navigate to.
  */
 const nav = (path) => {
-  window.location.href = window.origin + path;
+  window.location.href = window.origin + __BASE_URL__ + path;
 };
 
 export { route, start, nav };

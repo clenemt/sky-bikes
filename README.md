@@ -38,10 +38,10 @@ yarn test
 ## :rocket: Deployment
 
 ```sh
-# will output files to → /_site
+# will output files to → /docs
 yarn build
 # you can then serve it with any web server e.g.
-npx http-serve /_site
+npx http-serve /docs
 ```
 
 and to analyze your output:

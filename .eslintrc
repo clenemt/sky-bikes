@@ -17,7 +17,8 @@
   ],
 
   "globals": {
-    "__PROD__": true
+    "__PROD__": true,
+    "__BASE_URL__": true.
   },
   "rules": {
     "consistent-return": "off",
