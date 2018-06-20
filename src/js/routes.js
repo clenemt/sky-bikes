@@ -32,4 +32,4 @@ const init = () => {
   router.start();
 };
 
-export { init };
+export { init, authorize };

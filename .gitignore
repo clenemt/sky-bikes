@@ -1,6 +1,6 @@
 # Build files #
-_site
-jekyll/assets
+/_site
+/jekyll/assets
 
 # Logs #
 logs

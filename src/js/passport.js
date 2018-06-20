@@ -30,7 +30,7 @@ const isBanned = () => {
  */
 const isAdmin = () => {
   const user = userStore.get();
-  return (usersStore.get(user) || {}).admin;
+  return !!(usersStore.get(user) || {}).admin;
 };
 
 /**
@@ -68,4 +68,4 @@ const signup = ({ email, ...values }) => {
   usersStore.add({ email, ...values });
 };
 
-export { isLoggedIn, isAdmin, isBanned, signup, signout, signin };
+export { isLoggedIn, isAdmin, isBanned, signup, signout, signin, userExist };

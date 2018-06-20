@@ -2,23 +2,24 @@
   "parser": "babel-eslint",
   "plugins": [
     "prettier",                 // https://www.npmjs.com/package/eslint-plugin-prettier
+    "jest"                      // https://www.npmjs.com/package/eslint-plugin-jest
   ],
   "env": {                      // http://eslint.org/docs/user-guide/configuring.html#specifying-environments
     "browser": true,            // browser global variables
     "node": true,               // node global variables
     "es6": true,                // es6 variables
+    "jest/globals": true        // jest variables
   },
   "parserOptions": {
     "ecmaVersion": 6
   },
   "extends": [
-    "airbnb-base",                   // https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb
-    "prettier",                 // https://github.com/prettier/eslint-config-prettier
+    "airbnb-base",              // https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb
+    "prettier"                  // https://github.com/prettier/eslint-config-prettier
   ],
-
   "globals": {
     "__PROD__": true,
-    "__BASE_URL__": true.
+    "__BASE_URL__": true
   },
   "rules": {
     "consistent-return": "off",
