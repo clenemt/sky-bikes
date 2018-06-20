@@ -1,6 +1,6 @@
 # sky-bikes
 
-Holds the frontend code for the sky-bikes app.
+Holds the frontend code for the sky-bikes app. See it live at https://clenemt.github.io/sky-bikes/.
 
 ## :tada: Getting Started
 
@@ -40,8 +40,6 @@ yarn test
 ```sh
 # will output files to → /docs
 yarn build
-# you can then serve it with any web server e.g.
-npx http-serve /docs
 ```
 
 and to analyze your output:
