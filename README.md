@@ -2,6 +2,8 @@
 
 Holds the frontend code for the sky-bikes app. See it live at https://clenemt.github.io/sky-bikes/.
 
+![2018-06-20 02 54 55](https://user-images.githubusercontent.com/447956/41631550-822f1a5a-7435-11e8-93d0-77936c06c43b.gif)
+
 ## :tada: Getting Started
 
 This project uses [Jekyll](https://jekyllrb.com/) for rendering the page templates into `<html>` and [webpack](https://webpack.js.org/) for bundling the assets.
