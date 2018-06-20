@@ -2,6 +2,7 @@
   "name": "sky-bikes",
   "description": "Holds the frontend code for the sky-bikes app",
   "email": "clement.moron@gmail.com",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/clenemt/sky-bikes.git"

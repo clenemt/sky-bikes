@@ -50,3 +50,7 @@ and to analyze your output:
 # local web server accessible at http://localhost:8888
 yarn stats
 ```
+
+## :page_facing_up: License
+
+Licensed under [MIT](LICENSE.md).
