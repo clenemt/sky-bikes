@@ -5,7 +5,7 @@ import { isAdmin, signout } from '../passport';
 const renderStation = (id) => `<h3>Station ${id}</h3>`;
 
 const renderBike = ({ id, color }, station) => `
-  <a class="site__item" href="/bike.html?id=${id}&station=${station}">
+  <a class="site__item" href="${__BASE_URL__}/bike.html?id=${id}&station=${station}">
     Bike id is <strong>${id}</strong> and color is <strong style="color:${color};">${color}</strong>
   </a>
 `;
