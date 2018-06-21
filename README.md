@@ -35,6 +35,8 @@ yarn start
 
 ```sh
 yarn test
+# or to see the coverage
+yarn coverage
 ```
 
 ## :rocket: Deployment
