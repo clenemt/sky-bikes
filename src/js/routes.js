@@ -1,5 +1,7 @@
 import { isLoggedIn, signout, isAdmin, isBanned } from './passport';
 import router from './utils/router';
+import * as bikesStore from './stores/bikes';
+import * as userStore from './stores/user';
 import * as logs from './pages/logs';
 import * as bike from './pages/bike';
 import * as login from './pages/login';
@@ -20,11 +22,19 @@ const authorize = (requireAdmin) => () => {
   return isAdmin() || signout('authError');
 };
 
+const ensureOneBikePerUser = () => {
+  const bike = bikesStore.getByUser(userStore.get());
+  if (isAdmin() || !bike || window.location.href.includes(`id=${bike.id}`)) {
+    return true;
+  }
+  return signout('authError');
+};
+
 const init = () => {
   router.route('/index.html', login.init);
   router.route('/register.html', register.init);
-  router.route('/bike.html', authorize(), bike.init);
-  router.route('/bikes.html', authorize(), bikes.init);
+  router.route('/bike.html', authorize(), ensureOneBikePerUser, bike.init);
+  router.route('/bikes.html', authorize(), ensureOneBikePerUser, bikes.init);
 
   router.route('/users.html', authorize(true), users.init);
   router.route('/logs.html', authorize(true), logs.init);

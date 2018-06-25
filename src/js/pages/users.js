@@ -42,6 +42,7 @@ const init = () => {
   const bikes = bikesStore.getAll();
 
   const container = $('.site__content');
+
   users.forEach((user) => {
     const rentedBike = bikes.find((bike) => bike.renter === user.email);
     container.insertLast(renderUser(user, rentedBike));
