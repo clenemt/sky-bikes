@@ -43,7 +43,8 @@ const returnLateBikes = () => {
  */
 const rearrangeBikes = () => {
   const start =
-    store.get('startDate') || store.set('startDate', new Date().getTime());
+    store.get('sb-startDate') ||
+    store.set('sb-startDate', new Date().getTime());
   const difference = (new Date() - new Date(start)) / 1000;
 
   if (difference > REARRANGE_LIMIT) {
@@ -59,8 +60,8 @@ const rearrangeBikes = () => {
     );
     const bikesRented = bikes.filter((bike) => !bike.station);
 
-    store.set('bikes', [...bikesInStation, ...bikesRented]);
-    store.set('startDate', new Date().getTime());
+    store.set('sb-bikes', [...bikesInStation, ...bikesRented]);
+    store.set('sb-startDate', new Date().getTime());
   }
 };
 

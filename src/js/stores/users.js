@@ -8,8 +8,8 @@ import { log } from './logs';
  * @return {Object[]} Returns the users.
  */
 const getAll = () => {
-  const users = store.get('users');
-  return users || store.set('users', generate(10));
+  const users = store.get('sb-users');
+  return users || store.set('sb-users', generate(10));
 };
 
 /**
@@ -17,7 +17,7 @@ const getAll = () => {
  * @param  {Object} user - The user to add.
  * @return {Object} Returns the new user.
  */
-const add = (user) => store.set('users', [...getAll(), user]);
+const add = (user) => store.set('sb-users', [...getAll(), user]);
 
 /**
  * Get a user by its email.
@@ -35,7 +35,7 @@ const ban = (email) => {
   const user = users.find((usr) => usr.email === email);
   if (user.admin) return;
   user.banned = true;
-  store.set('users', users);
+  store.set('sb-users', users);
   log(`*banned* ${email} due to late return`);
 };
 

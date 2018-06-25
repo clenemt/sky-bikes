@@ -23,8 +23,8 @@ const groupByStation = (bikes) =>
  * @return {Object[]} Returns the bikes.
  */
 const getAll = () => {
-  const bikes = store.get('bikes');
-  return bikes || store.set('bikes', generate(21));
+  const bikes = store.get('sb-bikes');
+  return bikes || store.set('sb-bikes', generate(21));
 };
 
 /**
@@ -65,7 +65,7 @@ const getByUser = (email) => {
 const rentBike = (id, email) => {
   const bikes = getAll();
   store.set(
-    'bikes',
+    'sb-bikes',
     bikes.map((bike) => {
       if (bike.id !== id) return bike;
       return {
@@ -89,7 +89,7 @@ const rentBike = (id, email) => {
 const returnBike = (id, station, isAutomatic) => {
   const bikes = getAll();
   store.set(
-    'bikes',
+    'sb-bikes',
     bikes.map((bike) => {
       if (bike.id !== id) return bike;
       if (isAutomatic) usersStore.ban(bike.renter);
