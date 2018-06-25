@@ -1,5 +1,5 @@
 import { isLoggedIn, signout, isAdmin, isBanned } from './passport';
-import * as router from './utils/router';
+import router from './utils/router';
 import * as logs from './pages/logs';
 import * as bike from './pages/bike';
 import * as login from './pages/login';

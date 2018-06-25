@@ -1,5 +1,5 @@
 import * as passport from '../passport';
-import * as router from '../utils/router';
+import { nav } from '../utils/router';
 import * as userStore from '../stores/user';
 import * as usersStore from '../stores/users';
 
@@ -52,7 +52,7 @@ describe('signout()', () => {
 
   it('should navigate to home page with the error provided', () => {
     passport.signout('foo');
-    expect(router.nav).toHaveBeenCalledWith('/index.html?foo');
+    expect(nav).toHaveBeenCalledWith('/index.html?foo');
   });
 });
 
