@@ -34,7 +34,7 @@ const handleButtonClick = ({ id, renter }, user, station) => {
 const informUser = (isRental) => {
   const item = $('.site__item');
   item.html(renderInformation(isRental));
-  $('#back_button').empty();
+  $('#back_button').remove();
   setTimeout(signout, 5000);
 };
 

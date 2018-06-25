@@ -26,6 +26,7 @@ class Dom {
   html = (v) => this.each((i) => (i.innerHTML = v));
   insertLast = (v) => this.each((i) => i.insertAdjacentHTML('beforeEnd', v));
   empty = () => this.each((i) => (i.innerHTML = ''));
+  remove = () => this.each((i) => i.parentNode.removeChild(i));
 }
 
 const $ = (s) => new Dom(s);
